@@ -8,7 +8,7 @@ function FilterableCurrencyTable() {
     const [filterText, setFilterText] = useState(window.location.hash.substr(1));
     const {items: currencyItems, isLoading} = useDataFetchingService();
 
-    const setFilterInUrl = (filterTextInUrl: string) => {
+    const setFilterTextInUrl = (filterTextInUrl: string) => {
         window.location.hash = filterTextInUrl;
         setFilterText(filterTextInUrl);
     };
@@ -23,7 +23,7 @@ function FilterableCurrencyTable() {
     return (
         <div className={"container"} role={"currencyContainer"}>
             <PageHeader/>
-            <SearchBar filterText={filterText} setFilterText={setFilterInUrl}/>
+            <SearchBar filterText={filterText} setFilterText={setFilterTextInUrl}/>
             <CurrencyItemList filterText={filterText} currencyItems={currencyItems}/>
         </div>
     );
