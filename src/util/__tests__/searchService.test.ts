@@ -14,7 +14,7 @@ describe("searchService", () => {
         });
     });
 
-    describe("currencyContainsFilterText", () => {
+    describe("currencyCodeContainsFilterText", () => {
         it("Returns true when currency code contains filterText", () => {
             const result = currencyCodeContainsFilterText("HU", "HUF");
 
@@ -28,7 +28,7 @@ describe("searchService", () => {
         });
     });
 
-    describe("countryCurrencyContainsFilterText", () => {
+    describe("currencyNameContainsFilterText", () => {
         it("Returns true when currency name filterText", () => {
             const result = currencyNameContainsFilterText("HUNG", "Hungarian Forint");
 
