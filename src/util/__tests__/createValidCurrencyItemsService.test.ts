@@ -1,5 +1,5 @@
 import {
-    createValidCurrencyItemsService,
+    createValidCurrencyItems,
     preparesFlagUrl,
     itemContainsCurrencyCodeCurrencyNameExchangeRate
 } from "../createValidCurrencyItemsService";
@@ -20,7 +20,7 @@ describe("createValidCurrencyItemsService", () => {
                 {currency: "MXN", exchangeRate: exchangeRate},
             ]
 
-            const result = createValidCurrencyItemsService(currencyItems);
+            const result = createValidCurrencyItems(currencyItems);
 
             expect(result).toHaveLength(3);
         });

@@ -1,7 +1,7 @@
 import {CurrencyItem} from "../model/CurrencyItem";
 import {ValidCurrencyItem} from "../model/ValidCurrencyItem";
 
-export const createValidCurrencyItemsService = (items: CurrencyItem[]): ValidCurrencyItem[] => {
+export const createValidCurrencyItems = (items: CurrencyItem[]): ValidCurrencyItem[] => {
     const validItems: ValidCurrencyItem[] = [];
     items.filter(itemContainsCurrencyCodeCurrencyNameExchangeRate)
         .map((currencyItem) => {
@@ -19,4 +19,4 @@ export const itemContainsCurrencyCodeCurrencyNameExchangeRate = (currencyItem: C
     return Boolean(currencyItem.currency) && Boolean(currencyItem.nameI18N) && Boolean(currencyItem.exchangeRate);
 }
 
-export default createValidCurrencyItemsService;
+export default createValidCurrencyItems;

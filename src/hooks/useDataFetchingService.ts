@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import axios from "axios";
 import {ValidCurrencyItem} from "../model/ValidCurrencyItem";
-import createValidCurrencyItemsService from "../util/createValidCurrencyItemsService";
+import createValidCurrencyItems from "../util/createValidCurrencyItemsService";
 
 export const useDataFetchingService = () => {
     const [items, setItems] = useState<ValidCurrencyItem[]>([]);
@@ -11,7 +11,7 @@ export const useDataFetchingService = () => {
         axios.get(url)
             .then(res => {
                 const itemArray = res.data.fx;
-                setItems(createValidCurrencyItemsService(itemArray));
+                setItems(createValidCurrencyItems(itemArray));
                 setIsLoading(false);
             })
             .catch(err => {
