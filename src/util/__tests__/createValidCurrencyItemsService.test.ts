@@ -1,10 +1,9 @@
 import {
     createValidCurrencyItemsService,
     preparesFlagUrl,
-    itemContainsCurrencyNameCountryNameExchangeRate
+    itemContainsCurrencyCodeCurrencyNameExchangeRate
 } from "../createValidCurrencyItemsService";
 import {CurrencyItem} from "../../model/CurrencyItem";
-import {ValidCurrencyItem} from "../../model/ValidCurrencyItem";
 import {ExchangeRate} from "../../model/ExchangeRate";
 
 describe("createValidCurrencyItemsService", () => {
@@ -35,12 +34,12 @@ describe("createValidCurrencyItemsService", () => {
         })
     });
 
-    describe("itemContainsCurrencyNameCountryNameExchangeRate", () => {
+    describe("itemContainsCurrencyCodeCurrencyNameExchangeRate", () => {
         it("Returns true if currency, nameI18N and exchangeRate exist", () => {
             const exchangeRate: ExchangeRate = {middle: 320};
             const item: CurrencyItem = {currency: "HUF", nameI18N: "Hungarian Forint", exchangeRate: exchangeRate}
 
-            const result = itemContainsCurrencyNameCountryNameExchangeRate(item);
+            const result = itemContainsCurrencyCodeCurrencyNameExchangeRate(item);
 
             expect(result).toEqual(true);
         });
@@ -49,7 +48,7 @@ describe("createValidCurrencyItemsService", () => {
             const exchangeRate: ExchangeRate = {middle: 320};
             const item: CurrencyItem = {nameI18N: "Hungarian Forint", exchangeRate: exchangeRate};
 
-            const result = itemContainsCurrencyNameCountryNameExchangeRate(item);
+            const result = itemContainsCurrencyCodeCurrencyNameExchangeRate(item);
 
             expect(result).toEqual(false);
         });
@@ -58,7 +57,7 @@ describe("createValidCurrencyItemsService", () => {
             const exchangeRate: ExchangeRate = {middle: 320};
             const item: CurrencyItem = {currency: "HUF", exchangeRate: exchangeRate};
 
-            const result = itemContainsCurrencyNameCountryNameExchangeRate(item);
+            const result = itemContainsCurrencyCodeCurrencyNameExchangeRate(item);
 
             expect(result).toEqual(false);
         });
@@ -66,7 +65,7 @@ describe("createValidCurrencyItemsService", () => {
         it("Returns false if exchangeRate doesn't exist but currency and nameI18N exist", () => {
             const item: CurrencyItem = {currency: "HUF", nameI18N: "Hungarian Forint"};
 
-            const result = itemContainsCurrencyNameCountryNameExchangeRate(item);
+            const result = itemContainsCurrencyCodeCurrencyNameExchangeRate(item);
 
             expect(result).toEqual(false);
         });
