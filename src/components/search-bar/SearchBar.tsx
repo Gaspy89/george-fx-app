@@ -1,8 +1,8 @@
 import React from "react";
 
-function SearchBar(props: { filterText: string; setFilterText: (filterText: string) => void }) {
+function SearchBar(props: { filterText: string; setFilterTextInUrlHash: (inputText: string) => void }) {
     const filterText = props.filterText;
-    const setFilterText = props.setFilterText;
+    const setFilterTextInUrlHash = props.setFilterTextInUrlHash;
     return (
         <div className={"text-white bg-secondary sticky-top container"}>
             <div className={"row align-items-center"}>
@@ -13,7 +13,7 @@ function SearchBar(props: { filterText: string; setFilterText: (filterText: stri
                         value={filterText}
                         type={"text"}
                         onChange={(e) => {
-                            setFilterText(e.target.value)
+                            setFilterTextInUrlHash(e.target.value)
                         }}
                     />
                 </div>

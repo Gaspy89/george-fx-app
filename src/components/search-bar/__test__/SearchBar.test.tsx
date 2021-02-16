@@ -2,12 +2,12 @@ import {render, fireEvent, screen} from "@testing-library/react";
 import SearchBar from "../SearchBar";
 
 describe("SearchBar", () => {
-    it("Calls the provided setFilterText function on input change", () => {
-        const setFilterText = jest.fn()
+    it("Calls the provided setFilterTextInUrlHash function on input change", () => {
+        const setFilterTextInUrlHash = jest.fn()
 
-        render(<SearchBar filterText={"text"} setFilterText={setFilterText}/>);
+        render(<SearchBar filterText={"text"} setFilterTextInUrlHash={setFilterTextInUrlHash}/>);
         fireEvent.change(screen.getByRole("searchInput"), {target: {value: "newText"}});
 
-        expect(setFilterText).toHaveBeenCalledWith("newText");
+        expect(setFilterTextInUrlHash).toHaveBeenCalledWith("newText");
     });
 });
