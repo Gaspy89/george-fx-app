@@ -12,10 +12,12 @@ describe("createValidCurrencyItemsService", () => {
             const exchangeRate: ExchangeRate = {middle: 320};
             const currencyItems: CurrencyItem [] = [
                 {currency: "HUF", nameI18N: "Hungarian Forint", exchangeRate: exchangeRate},
-                {currency: "HUF", nameI18N: "Hungarian Forint", exchangeRate: exchangeRate, flagUrl: "/flags/hu.png"},
-                {currency: "MXN", nameI18N: "Mexican Peso", exchangeRate: exchangeRate, flagUrl: "/flags/mx.png"},
+                {currency: "HUF", nameI18N: "Hungarian Forint", exchangeRate: exchangeRate},
+                {currency: "MXN", nameI18N: "Mexican Peso", exchangeRate: exchangeRate},
+                {currency: "HUF"},
                 {currency: "HUF", nameI18N: "Hungarian Forint"},
                 {currency: "HUF", exchangeRate: exchangeRate},
+                {currency: "MXN"},
                 {currency: "MXN", nameI18N: "Mexican Peso"},
                 {currency: "MXN", exchangeRate: exchangeRate},
             ]
